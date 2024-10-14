@@ -1,5 +1,5 @@
 {% set name = "openqdc" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openqdc-{{ version }}.tar.gz
-  sha256: fe592a3c31fc75641ac31af87c8063928c79b48516bf518a57ccb9553a37822e
+  sha256: 694f4376ede84e1ae4246dcb71dc3d4cdefd7639cd598d674afe1f651b49d44c
 
 build:
   entry_points:

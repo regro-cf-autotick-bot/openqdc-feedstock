@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/openqdc-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/openqdc-{{ version }}.tar.gz
   sha256: 694f4376ede84e1ae4246dcb71dc3d4cdefd7639cd598d674afe1f651b49d44c
 
 build:
@@ -14,15 +14,15 @@ build:
     - openqdc = openqdc.cli:app
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8
+    - python {{ python_min }}
     - setuptools >=61.0
     - pip
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - tqdm
     - pyyaml
     - loguru
@@ -51,6 +51,7 @@ test:
     - openqdc --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/valence-labs/openQDC
